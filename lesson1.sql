@@ -29,12 +29,14 @@ from orders
 order by total_amt_usd
 limit 20;
 
-Escriba una consulta que muestre el ID del pedido, el ID de la cuenta y el
-monto total en dólares de todos los pedidos, ordenados primero por el ID de
-la cuenta (en orden ascendente) y luego por el monto total en dólares
-(en orden descendente).
+#Escriba una consulta que muestre el ID del pedido, el ID de la cuenta y el
+#monto total en dólares de todos los pedidos, ordenados primero por el ID de
+#la cuenta (en orden ascendente) y luego por el monto total en dólares
+#(en orden descendente).
 
-
+select id, account_id, total_amt_usd
+from orders
+order by account_id, total_amt_usd desc;
 
 Ahora escriba una consulta que muestre nuevamente el ID del pedido, el ID de la
 cuenta y el monto total en dólares de cada pedido, pero esta vez ordenados
@@ -42,3 +44,7 @@ primero por el monto total en dólares (en orden descendente) y luego por el
 ID de la cuenta (en orden ascendente). Compare los resultados de estas dos
 consultas anteriores. ¿En qué se diferencian los resultados cuando cambia
 la columna que ordena primero?
+
+select id, account_id, total_amt_usd
+from orders
+order by total_amt_usd desc, account_id;

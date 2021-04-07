@@ -131,6 +131,100 @@ where name in ('Walmart', 'Target', 'Nordstrom');
 Utilice la tabla web_events para encontrar toda la información sobre las
 personas que fueron contactadas a través del canal de organic o adwords.
 
-select * 
+select *
 from web_events
 where channel in ('organic', 'adwords');
+
+
+Preguntas usando el operador NOT
+Podemos extraer todas las filas que se excluyeron de las consultas en los
+dos conceptos anteriores con nuestro nuevo operador.
+
+Utilice la tabla de cuentas para encontrar el nombre de la cuenta, el poc
+principal y la identificación del representante de ventas de todas las
+tiendas, excepto Walmart, Target y Nordstrom.
+
+select name, primary_poc, sales_rep_id
+from accounts
+where name not in ('Walmart', 'Target', 'Nordstrom');
+
+Utilice la tabla web_events para encontrar toda la información sobre las
+personas que fueron contactadas a través de cualquier método, excepto el
+uso organico los adwords métodos.
+Utilice la tabla de cuentas para encontrar:
+
+select *
+from web_events
+where channel not in ('organic', 'adwords');
+
+Todas las empresas cuyos nombres no comienzan con 'C'.
+
+select name
+from accounts
+where name not like 'C%';
+
+Todas las empresas cuyos nombres no contienen la cadena "uno" en algún
+lugar del nombre.
+
+select name
+from accounts
+where name not like '%one%';
+
+Todas las empresas cuyos nombres no terminen con 's'.
+
+select name
+from accounts
+where name not like '%s';
+
+Escriba una consulta que devuelva todos los pedidos donde el standard_qt y es
+superior a 1000, el poster_qt y  es 0 y el gloss_qtyes 0.
+SELECT *
+FROM orders
+WHERE standard_qty > 1000 AND poster_qty = 0 AND gloss_qty = 0;
+
+Utilizando la tabla de cuentas , busque todas las empresas cuyos nombres no
+comiencen con 'C' y terminen con 's'.
+SELECT name
+FROM accounts
+WHERE name NOT LIKE 'C%' AND name LIKE '%s';
+
+Cuando usa el operador BETWEEN en SQL, ¿los resultados incluyen los valores
+de sus puntos finales o no? Encuentre la respuesta a esta importante pregunta
+escribiendo una consulta que muestre la fecha del pedido y los gloss_qty datos
+para todos los pedidos donde gloss_qt y está entre 24 y 29. Luego, mire su
+resultado para ver si el operador BETWEEN incluyó los valores de inicio y
+finalización o no.
+SELECT occurred_at, gloss_qty
+FROM orders
+WHERE gloss_qty BETWEEN 24 AND 29;
+
+
+Utilice la tabla web_events para encontrar toda la información sobre las
+personas que fueron contactadas a través de los canales organico adwords y
+que iniciaron su cuenta en cualquier momento de 2016, ordenadas de la más
+nueva a la más antigua.
+SELECT *
+FROM web_events
+WHERE channel IN ('organic', 'adwords') AND occurred_at BETWEEN '2016-01-01' AND '2017-01-01'
+ORDER BY occurred_at DESC;
+
+Preguntas usando el operador OR
+Busque una lista de ID de pedidos donde gloss_qtyo poster_qtysea ​​mayor
+que 4000. Incluya solo el idcampo en la tabla resultante.
+SELECT id
+FROM orders
+WHERE gloss_qty > 4000 OR poster_qty > 4000;
+
+Escriba una consulta que devuelva una lista de pedidos donde el standard_qty es
+cero y el gloss_qtyo poster_qtyes superior a 1000.
+select *
+from orders
+where standard_qty = 0 and (gloss_qty > 1000 or poster_qty > 1000);
+
+Busque todos los nombres de empresas que comienzan con una 'C' o 'W', y el
+contacto principal contiene 'ana' o 'Ana', pero no contiene 'eana'.
+SELECT *
+FROM accounts
+WHERE (name LIKE 'C%' OR name LIKE 'W%')
+AND ((primary_poc LIKE '%ana%' OR primary_poc LIKE '%Ana%')
+AND primary_poc NOT LIKE '%eana%');

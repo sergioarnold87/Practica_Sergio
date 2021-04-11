@@ -228,3 +228,63 @@ FROM accounts
 WHERE (name LIKE 'C%' OR name LIKE 'W%')
 AND ((primary_poc LIKE '%ana%' OR primary_poc LIKE '%Ana%')
 AND primary_poc NOT LIKE '%eana%');
+
+
+
+*********************JOINS*******************************
+
+select orders.*
+        accounts.*
+    from demo.orders
+    join demo.accounts
+        on orders.account_id = account.id
+
+select orders.*
+from orders
+join accounts
+
+si queremos extraer solo el nombre de la cuenta y las fechas en las que esa
+cuenta realizó un pedido, pero ninguna de las otras columnas, podemos hacerlo
+con la siguiente consulta:
+
+SELECT accounts.name, orders.occurred_at
+FROM orders
+JOIN accounts
+ON orders.account_id = accounts.id;
+
+Esta consulta solo extrae dos columnas, no toda la información de
+ estas dos tablas. Alternativamente, el siguiente consulta tira de
+ todas las columnas de tanto la cuentas y órdenes mesa.
+
+ SELECT *
+ FROM orders
+ JOIN accounts
+ ON orders.account_id = accounts.id;
+
+ Y la primera consulta que ejecutó extrajo toda la información solo
+  de la tabla de pedidos :
+
+
+ SELECT orders.*
+FROM orders
+JOIN accounts
+ON orders.account_id = accounts.id;
+
+Intente extraer todos los datos de la tabla de cuentas y todos los datos de la
+tabla de pedidos .
+
+select orders.*, accounts.*
+from accounts
+join orders
+on accounts.id = orders.account_id;
+
+
+Intente extraer standard_qty , gloss_qty y poster_qty de la tabla de pedidos
+, y el sitio web y primary_poc de la tabla de cuentas.
+
+select  orders.standard_qty, orders.gloss_qty,
+        orders.poster_qty,  accounts.website,
+        accounts.primary_poc
+from orders
+join accounts
+on orders.account_id = accounts.id

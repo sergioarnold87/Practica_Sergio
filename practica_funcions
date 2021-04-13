@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr 13 15:22:12 2021
+
+@author: sergio
+"""
+
+# Creemos ahora una función que dada una frase acabada en punto, 
+#  nos devuelva si contiene o no la letra "a" haciendo uso de un bucle while"
+
+def contains_a(sentence):
+    i = 0
+    while sentence[i] != ".":
+        if sentence[i] == "a":
+            return True
+        i+=1
+    return False
+
+contains_a("El erizo es bonito.")
+
+contains_a("El elefante es gigante.")

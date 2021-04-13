@@ -20,3 +20,29 @@ def contains_a(sentence):
 contains_a("El erizo es bonito.")
 
 contains_a("El elefante es gigante.")
+
+"""
+Generalizad la función contains_a() a una función llamada contains_letter() 
+que devuelva si una frase cualquiera (no necesariamente acabada en punto)
+ contiene o no la letra indicada también por el usuario. Tenéis que hacerlo 
+ únicamente con operadores de decisión e iteración. No vale usar ningún
+ método existente de string.
+"""
+def contains_letter(sentece, letter):
+    for c in sentece:
+        if c == letter:
+            return True
+        return False
+    
+    contains_letter("Mi amigo es muy inteligente, pero un poco pesado", "t")
+    
+   # Funciones recursivas
+   
+   def powers(x, n):
+       if x ** n> 1000000:
+           return x ** n
+       print( x ** n)
+       powers(x, n + 1)
+       
+powers(2,1)
+    

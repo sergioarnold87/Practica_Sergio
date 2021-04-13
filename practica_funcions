@@ -46,3 +46,56 @@ def contains_letter(sentece, letter):
        
 powers(2,1)
     
+"""
+Crear funcion recursiva que lleve a cabo una cuenta atrás
+"""
+
+def countdown(n):
+    """
+    Cuenta atrás recursiva
+    Args:
+        n: Número entero positivo
+    Returns:
+    """
+    if n == 0:
+        return 0
+    print(n)
+    return countdown(n-1)
+
+countdown(15)
+
+
+"""
+Vamos a crear una función recursiva que cacule el factorial de un número
+entero positivo
+"""
+
+def factorial(n):
+    """
+    Calcula el factorial de un número positivo
+    ----------
+    Args:
+        n = Número entero positivo
+    Returns:
+        Factorial de n
+    """
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+
+factorial(5)
+
+"""
+Queremos una función que nos imprima el término  i -ésimo de la sucesión de
+ Fibonacci. Es decir, nosotros le indicamos el índice del término y la
+ función nos devuelve el valor de dicho término.
+"""
+
+def Fibonacci(index):
+    if index == 0 or index == 1:
+        return 1
+    return Fibonacci(index -1) + Fibonacci(index -2)
+
+Fibonacci(index = 25)
+    

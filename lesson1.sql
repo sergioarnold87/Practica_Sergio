@@ -288,3 +288,50 @@ select  orders.standard_qty, orders.gloss_qty,
 from orders
 join accounts
 on orders.account_id = accounts.id
+
+Proporcione una tabla para todos los web_events asociados con el
+nombre de cuenta de Walmart. Debe haber tres columnas. Asegúrese de
+incluir la primary_pochora del evento y la channelde cada evento. Además,
+puede optar por agregar una cuarta columna para asegurarse de que solo
+Walmartse eligieron los eventos.
+
+SELECT r.name region, s.name rep, a.name account
+FROM sales_reps s
+JOIN region r
+ON s.region_id = r.id
+JOIN accounts a
+ON a.sales_rep_id = s.id
+ORDER BY a.name;
+
+
+Proporcione una tabla que proporcione la región para cada sales_rep junto
+con sus cuentas asociadas . Su tabla final debe incluir tres columnas: el
+ nombre de la región , el nombre del representante de ventas y el nombre de
+ la cuenta . Ordene las cuentas alfabéticamente (AZ) según el nombre de la
+ cuenta.
+SELECT r.name region, a.name account,
+       o.total_amt_usd/(o.total + 0.01) unit_price
+FROM region r
+JOIN sales_reps s
+ON s.region_id = r.id
+JOIN accounts a
+ON a.sales_rep_id = s.id
+JOIN orders o
+ON o.account_id = a.id;
+
+Proporcione el nombre de cada región para cada pedido , así como
+ nombre de la cuenta y el precio unitario que pagaron (total_amt_usd / total)
+ por el pedido. Su tabla final debe tener 3 columnas: nombre de la región ,
+ nombre de la cuenta y precio unitario . Algunas cuentas tienen 0 para el
+ total , por lo que dividí entre (total + 0.01) para asegurarme de no dividir
+ por cero.
+
+ SELECT r.name region, a.name account,
+        o.total_amt_usd/(o.total + 0.01) unit_price
+ FROM region r
+ JOIN sales_reps s
+ ON s.region_id = r.id
+ JOIN accounts a
+ ON a.sales_rep_id = s.id
+ JOIN orders o
+ ON o.account_id = a.id;

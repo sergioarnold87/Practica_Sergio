@@ -334,4 +334,59 @@ Proporcione el nombre de cada región para cada pedido , así como
  JOIN accounts a
  ON a.sales_rep_id = s.id
  JOIN orders o
- ON o.account_id = a.id;
+ ON o.account_id = a.id;1
+
+ Proporcione una tabla que proporcione la región para cada sales_rep junto
+ con sus cuentas asociadas . Esta vez solo para la Midwestregión. Su tabla
+  final debe incluir tres columnas: el nombre de la región , el nombre del
+  representante de ventas y el nombre de la cuenta . Ordene las cuentas
+   alfabéticamente (AZ) según el nombre de la cuenta.
+
+ Proporcione una tabla que proporcione la región para cada sales_rep junto
+  con sus cuentas asociadas . Esta vez solo para cuentas donde el representante
+   de ventas tiene un nombre que comienza con Sy en la Midwestregión. Su tabla
+   final debe incluir tres columnas: el nombre de la región , el nombre del
+    representante de ventas y el nombre de la cuenta . Ordene las cuentas
+     alfabéticamente (AZ) según el nombre de la cuenta.
+
+
+ Proporcione una tabla que proporcione la región para cada sales_rep junto con
+ sus cuentas asociadas . Esta vez solo para cuentas donde el representante de
+ ventas tiene un apellido que comienza con Ky en la Midwestregión. Su tabla
+ final debe incluir tres columnas: el nombre de la región , el nombre del
+ representante de ventas y el nombre de la cuenta . Ordene las cuentas
+ alfabéticamente (AZ) según el nombre de la cuenta.
+
+ Proporcione el nombre de cada región para cada pedido , así como el nombre
+  de la cuenta y el precio unitario que pagaron (total_amt_usd / total) por
+  el pedido. Sin embargo, solo debe proporcionar los resultados si excede la
+   cantidad estándar del pedido100 . Su tabla final debe tener 3 columnas:
+   nombre de la región , nombre de la cuenta y precio unitario . Para evitar
+    una división por error cero, agregar .01 al denominador aquí es útil
+    total_amt_usd / (total + 0.01).
+
+ Proporcione el nombre de cada región para cada pedido , así como el nombre de
+  la cuenta y el precio unitario que pagaron (total_amt_usd / total) por el
+   pedido. Sin embargo, solo debe proporcionar los resultados si la cantidad
+    de pedido estándar excede 100y la cantidad de pedido de póster
+    excede 50. Su tabla final debe tener 3 columnas: nombre de la región ,
+     nombre de la cuenta y precio unitario . Ordene primero por el precio
+      unitario más pequeño . Para evitar una división por error cero, es
+       útil agregar .01 al denominador aquí (total_amt_usd / (total + 0.01).
+
+ Proporcione el nombre de cada región para cada pedido , así como el nombre
+  de la cuenta y el precio unitario que pagaron (total_amt_usd / total) por
+   el pedido. Sin embargo, solo debe proporcionar los resultados si la cantidad
+   de pedido estándar excede 100y la cantidad de pedido de póster excede 50.
+   Su tabla final debe tener 3 columnas: nombre de la región , nombre de la
+    cuenta y precio unitario . Ordene primero por el precio unitario más
+    grande . Para evitar una división por error cero, es útil agregar .01 al
+    denominador aquí (total_amt_usd / (total + 0.01).
+
+ ¿Cuáles son los diferentes canales utilizados por ID de cuenta 1001 ? Su mesa
+  final debe tener solo 2 columnas: el nombre de la cuenta y los diferentes
+  canales . Puede probar SELECT DISTINCT para limitar los resultados a solo
+   los valores únicos.
+
+ Encuentre todos los pedidos que ocurrieron en 2015. Su mesa final debe tene
+ r 4 columnas: occ

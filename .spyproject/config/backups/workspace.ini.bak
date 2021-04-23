@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = empty-project-type
-recent_files = ['../GitHub/Udemy/machinelearning-az/datasets/Part 3 - Classification/Section 15 - K-Nearest Neighbors (K-NN)/knn.py', 'Machine Learning/knn.py']
+recent_files = ['Machine Learning/SVM.py']
 
 [main]
 version = 0.2.0

@@ -341,6 +341,14 @@ Proporcione el nombre de cada región para cada pedido , así como
   final debe incluir tres columnas: el nombre de la región , el nombre del
   representante de ventas y el nombre de la cuenta . Ordene las cuentas
    alfabéticamente (AZ) según el nombre de la cuenta.
+   SELECT r.name region, s.name rep, a.name account
+   FROM sales_reps s
+   JOIN region r
+   ON s.region_id = r.id
+   JOIN accounts a
+   ON a.sales_rep_id = s.id
+   WHERE r.name = 'Midwest'
+   ORDER BY a.name;
 
  Proporcione una tabla que proporcione la región para cada sales_rep junto
   con sus cuentas asociadas . Esta vez solo para cuentas donde el representante
@@ -348,7 +356,10 @@ Proporcione el nombre de cada región para cada pedido , así como
    final debe incluir tres columnas: el nombre de la región , el nombre del
     representante de ventas y el nombre de la cuenta . Ordene las cuentas
      alfabéticamente (AZ) según el nombre de la cuenta.
-
+SELECT r.name region, s.name rep, a.name account
+FROM sales_rep s
+JOIN region r
+ON s.region_id = 
 
  Proporcione una tabla que proporcione la región para cada sales_rep junto con
  sus cuentas asociadas . Esta vez solo para cuentas donde el representante de

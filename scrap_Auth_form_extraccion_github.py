@@ -55,6 +55,26 @@ login_data = {
   # timestamp y timestamp_secret tambien los tenemos pero luego de realizar pruebas, comprobamos que no son importantes
 }
 
+# Una vez ejecutado el requerimiento POST a la URL de Login con la data necesaria, yo ya estoy logeado
+# Y el objeto session me mantiene logeado para los futuros requerimientos
+session.post(
+  login_url, 
+  data=login_data, 
+  headers=headers
+)
+
+# Finalmente entro a la pagina donde quiero sacar la info estando autenticado gracias al session
+data_url = 'https://github.com/sergioarnold87?tab=repositories'
+respuesta = session.get(
+  data_url, 
+  headers=headers
+)
+
+# Utilizo LXML para parsear el arbol HTML
+parser = html.fromstring(respuesta.text)
+repositorios = parser.xpath('//h3[@class="wb-break-all"]/a/text()')
+for repositorio in repositorios:
+    print (repositorio)
 
 
 

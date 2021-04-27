@@ -458,3 +458,29 @@ JOIN orders o
 ON o.account_id = a.id
 WHERE o.occurred_at BETWEEN '01-01-2015' AND '01-01-2016'
 ORDER BY o.occurred_at DESC;
+
+Pruebe su suerte para encontrar el número de filas en cada tabla.
+A continuación, se muestra un ejemplo de cómo encontrar todas las filas
+en la tabla de cuentas .
+SELECT COUNT(*)
+FROM accounts;
+
+Pero podríamos haber elegido fácilmente una columna para colocarla en
+la función de agregación:
+Pero podríamos haber elegido fácilmente una columna para colocarla en la función de agregación:
+
+SELECT COUNT(accounts.id)
+FROM accounts;
+
+Encuentre la cantidad total de papel poster_qty pedido en la tabla de pedidos .
+
+Encuentre la cantidad total de papel standard_qty pedido en la tabla de pedidos .
+
+Encuentre el monto total en dólares de las ventas utilizando total_amt_usd
+en la tabla de pedidos .
+
+Encuentre la cantidad total gastada en papel standard_amt_usd y gloss_amt_usd
+ para cada pedido en la tabla de pedidos. Esto debería dar una cantidad en dólares para cada pedido en la tabla.
+
+Encuentre el standard_amt_usd por unidad de papel standard_qty . Su solución
+debe utilizar tanto una agregación como un operador matemático.

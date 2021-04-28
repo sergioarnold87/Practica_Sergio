@@ -29,7 +29,7 @@ reduce(lambda x, y: x * y, nums)
 # vamos a obtener el máximo de una lista dada, haciendo uso de reduce() y 
 # la función creada bigger_than():
     
- def bigger_than(a, b):
+def bigger_than(a, b):
   if a > b:
     return a
   return b
@@ -37,3 +37,78 @@ bigger_than(14, 7)
 
 nums = [-10, 5, 7, -3, 16, -30, 2, 33]
 reduce(bigger_than, nums)   
+
+# Dada una lista de palabras, vamos a quedarnos con la palabra con más "a".
+
+from functools import reduce
+
+def total_a(w):
+  """
+  Devuelve el total de apariciones de la letra a
+  Args:
+    w: Palabra en formato string
+  Returns:
+    a: Número entero
+  """
+  a = 0
+  for c in w.lower():
+    if c == "a":
+      a += 1
+  return a
+
+def more_a(w1, w2):
+  """
+  Devuelve la palabra con mayor número de a
+  Args:
+    w1: Palabra en formato string
+    w2: Palabra en formato string
+  Returns:
+    Palabra en formato string
+  """
+  if total_a(w1) >= total_a(w2):
+    return w1
+  return w2
+
+words = ["zapato", "amigo", "cosa", "amargada", "césped"]
+reduce(lambda w1, w2: more_a(w1,w2), words)
+
+#Vamos a convertir una lista de grados Celsius a grados Fahrenheit.
+#  El resultado lo mostraremos como una lista.
+
+def from_C_to_F(celsius):
+  """
+  Convierte grados celsius en Fahrenheit
+  Args:
+    celsius: Número real
+  Returns:
+    fahrenheit: Número real
+  """
+  fahrenheit = (celsius * 9 / 5) + 32
+  return fahrenheit
+
+celsius = [0, 5, 10, 15, 20, 25, 50, 100, 200]
+list(map(from_C_to_F, celsius))
+
+"""
+Vamos a ordenar una lista de palabras por el número de apariciones de
+ la letra indicada por el usuario. El orden será descendente.
+"""
+
+def total_letter(w, l):
+  """
+  Devuelve el total de apariciones de la letra indicada por parámetro en la palabra w
+  Args:
+    w: Palabra en formato string
+    l: Letra en formato string
+  Returns:
+    letter: Número entero
+  """
+  letter = 0
+  for c in w.lower():
+    if c == l.lower():
+      letter += 1
+  return letter
+
+l = input("Introduce una letra: ")
+words = ["tutu", "jugueteria", "violonchelo", "fanfarron", "piano", "murcielago"]
+sorted(words, key = lambda w: total_letter(w, l), reverse = True)

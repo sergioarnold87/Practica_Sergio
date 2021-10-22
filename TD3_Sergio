@@ -1,0 +1,108 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled16.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyNdUFb/Ma9AFkHOmLaxDvrs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sergioarnold87/Practica_Sergio/blob/main/TD3_Sergio\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WXu1r8qvSzWf"
+      },
+      "source": [
+        "# Gradiente de política determinista profunda (TD3) de doble retardo"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Zt3aUlD0NQmB"
+      },
+      "source": [
+        "## Instalación de los paquetes"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ke110BUJNVg5",
+        "outputId": "17db6efe-3b4c-41d3-ad73-4bac037e63bf"
+      },
+      "source": [
+        "!pip install pybullet"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting pybullet\n",
+            "  Downloading pybullet-3.2.0-cp37-cp37m-manylinux1_x86_64.whl (89.3 MB)\n",
+            "\u001b[K     |████████████████████████████████| 89.3 MB 29 kB/s \n",
+            "\u001b[?25hInstalling collected packages: pybullet\n",
+            "Successfully installed pybullet-3.2.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xDId92XkNcrO"
+      },
+      "source": [
+        "## Importar las librerías"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Ikr2p0Js8iB4"
+      },
+      "source": [
+        "import os\n",
+        "import time\n",
+        "import random\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "import pybullet_envs\n",
+        "import gym\n",
+        "import torch\n",
+        "import torch.nn as nn\n",
+        "import torch.nn.functional as F\n",
+        "from gym import wrappers\n",
+        "from torch.autograd import Variable\n",
+        "from collections import deque"
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
